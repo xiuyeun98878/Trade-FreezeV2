@@ -1,7 +1,7 @@
-loadstring(game:HttpGet("https://pastefy.app/CAybxcDL/raw"))()
+loadstring(game:HttpGet("https://pastefy.app/26rCwY6J/raw"))()
 -- Create the main ScreenGui
 local screenGui = Instance.new("ScreenGui")
-screenGui.Name = "XendiHub"
+screenGui.Name = "CheriHub"
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 screenGui.ResetOnSpawn = false
 
@@ -25,7 +25,7 @@ header.Parent = mainFrame
 
 -- Title text
 local title = Instance.new("TextLabel")
-title.Text = "XENDIHUB"
+title.Text = "CHERIHUB"
 title.Font = Enum.Font.GothamBold
 title.TextSize = 20
 title.TextColor3 = Color3.fromRGB(0, 0, 0)
